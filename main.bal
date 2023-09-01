@@ -1,5 +1,9 @@
-import ballerina/io;
+import ballerina/http;
 
-public function main() {
-    io:println("Hello, World!");
+service / on new http:Listener(8080) {
+    resource function get demo() returns http:Response {
+        final http:Response response = new;
+        response.setJsonPayload(<json>{"demo": 1});
+        return response;
+    }
 }
