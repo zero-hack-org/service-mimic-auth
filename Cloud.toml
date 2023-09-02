@@ -1,0 +1,3 @@
+[container.image]
+name="mimic_auth"
+tag="latest"
