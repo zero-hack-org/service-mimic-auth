@@ -54,3 +54,8 @@ gradle-app.setting
 
 # code coverage reports
 /.jacoco
+
+# ballerina coml
+Config.toml
+Dependencies.toml
+.devcontainer.json
