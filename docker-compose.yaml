@@ -1,0 +1,27 @@
+version: "3"
+services:
+  db-dynamo:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+      args:
+        DYNAMODB_LOCAL_VERSION: "2.0.0"
+    image: db-dynamo
+    container_name: db
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    volumes:
+      - ./db/dynamodblocal:/home/dynamodblocal/data
+    ports:
+      - 8000:8000
+    working_dir: /home/dynamodblocal
+
+  service-auth:
+    build:
+      context: ./target/docker/mimic_auth
+      dockerfile: Dockerfile
+    image: auth-service
+    container_name: auth
+    ports:
+      - 8080:8080
+    depends_on:
+      - "db-dynamo"
