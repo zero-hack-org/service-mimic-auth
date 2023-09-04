@@ -1,0 +1,6 @@
+ARG AWSCLI_VERSION
+FROM amazon/aws-cli:${AWSCLI_VERSION}
+
+WORKDIR /app
+
+ENTRYPOINT ["/bin/bash"]
