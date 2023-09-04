@@ -13,7 +13,7 @@ This service for authentication accessed from the client via Client SDK
 
 #### 1. first step
 
-1. tmp: sample
+1. tmp: sample build
 
    ```bash
    bal build
