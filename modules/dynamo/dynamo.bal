@@ -10,7 +10,3 @@ public function hello(string name) returns string {
     }
     return "Hello, World!";
 }
-
-public function main() {
-    io:println("dynamo init");
-}
