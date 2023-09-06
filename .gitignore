@@ -59,3 +59,10 @@ gradle-app.setting
 Config.toml
 Dependencies.toml
 .devcontainer.json
+
+# dynamodblocal
+db/dynamodblocal/*
+
+# .gitkeep, keep
+!.gitkeep
+!.keep
