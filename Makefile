@@ -6,3 +6,5 @@ b:
 	docker-compose build
 u:
 	docker-compose up
+cli_in:
+	docker exec -it awscli /bin/bash
