@@ -2,23 +2,25 @@ version: "3"
 services:
   awscli:
     build:
-      context: ./db
-      dockerfile: Dockerfile.client
+      context: ./awscli
+      dockerfile: Dockerfile
       args:
         AWSCLI_VERSION: "2.13.9"
     tty: true
     image: awscli
     container_name: awscli
     volumes:
-      - ./db/configs:/app
+      - ./awscli/configs:/app
+    environment:
+      - DYNAMO_DB_ENDPOINT_URL=http://db:8000
     env_file:
-      - ./db/env/aws.local.env
+      - ./awscli/env/aws.local.env
     working_dir: /app
 
   dynamo:
     build:
       context: ./db
-      dockerfile: Dockerfile.dynamo
+      dockerfile: Dockerfile
       args:
         DYNAMODB_LOCAL_VERSION: "2.0.0"
     image: db-dynamo
@@ -30,12 +32,12 @@ services:
       - 8000:8000
     working_dir: /home/dynamodblocal
 
-  auther:
+  service:
     build:
       context: ./target/docker/mimic_auth
       dockerfile: Dockerfile
     image: auth-service
-    container_name: auth
+    container_name: service
     ports:
       - 8080:8080
     depends_on:
