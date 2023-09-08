@@ -1,21 +1,36 @@
 version: "3"
 services:
-  db-dynamo:
+  awscli:
     build:
       context: ./db
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.client
+      args:
+        AWSCLI_VERSION: "2.13.9"
+    tty: true
+    image: awscli
+    container_name: awscli
+    volumes:
+      - ./db/configs:/app
+    env_file:
+      - ./db/env/aws.local.env
+    working_dir: /app
+
+  dynamo:
+    build:
+      context: ./db
+      dockerfile: Dockerfile.dynamo
       args:
         DYNAMODB_LOCAL_VERSION: "2.0.0"
     image: db-dynamo
     container_name: db
-    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    command: -jar DynamoDBLocal.jar -sharedDb -dbPath ./data
     volumes:
       - ./db/dynamodblocal:/home/dynamodblocal/data
     ports:
       - 8000:8000
     working_dir: /home/dynamodblocal
 
-  service-auth:
+  auther:
     build:
       context: ./target/docker/mimic_auth
       dockerfile: Dockerfile
@@ -24,4 +39,4 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - "db-dynamo"
+      - "dynamo"
