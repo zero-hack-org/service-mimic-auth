@@ -66,3 +66,6 @@ db/dynamodblocal/*
 # .gitkeep, keep
 !.gitkeep
 !.keep
+
+# env
+awscli/env/aws.env
