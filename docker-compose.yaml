@@ -14,7 +14,7 @@ services:
     environment:
       - DYNAMO_DB_ENDPOINT_URL=http://db:8000
     env_file:
-      - ./awscli/env/aws.local.env
+      - ./awscli/env/aws.env
     working_dir: /app
 
   dynamo:
