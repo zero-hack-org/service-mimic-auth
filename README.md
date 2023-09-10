@@ -7,17 +7,17 @@
 
 ## service-mimic-auth
 
-authentication service for mimic
+This service for authentication accessed from the client via Client SDK
 
 ### Usage
 
 #### 1. first step
 
-{description}
+1. tmp: sample build
 
-#### 2. second step
-
-{description}
+   ```bash
+   bal build
+   ```
 
 ### Useful links
 

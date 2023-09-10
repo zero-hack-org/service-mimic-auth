@@ -1,6 +1,10 @@
 h:
 	cat Makefile
-b:
+bal_b:
 	bal build
-r:
-	docker run -it --platform=linux/amd64 --rm -p 8080:8080 mimic_auth:latest
+b:
+	docker-compose build
+u:
+	docker-compose up
+in_cli:
+	docker exec -it awscli /bin/bash
