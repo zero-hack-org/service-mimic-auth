@@ -1,0 +1,27 @@
+{
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "PublicKey",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "PrivateKey",
+      "AttributeType": "S"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "PublicKey",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "PrivateKey",
+      "KeyType": "RANGE"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 10,
+    "WriteCapacityUnits": 10
+  },
+  "BillingMode": "PAY_PER_REQUEST"
+}
