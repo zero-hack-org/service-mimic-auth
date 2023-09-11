@@ -13,10 +13,24 @@ This service for authentication accessed from the client via Client SDK
 
 #### 1. first step
 
-1. tmp: sample build
+1. ballerina build
 
    ```bash
    bal build
+   ```
+
+2. copy aws.env
+
+   ```bash
+   cp awscli/env/base.env awscli/env/aws.env
+   ```
+
+3. input configuration aws.env
+
+   ```env
+   AWS_ACCESS_KEY_ID={ACCESS_KEY}
+   AWS_SECRET_ACCESS_KEY={SECRET_KEY}
+   AWS_DEFAULT_REGION=ap-northeast-1
    ```
 
 ### Useful links
