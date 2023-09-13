@@ -3,28 +3,12 @@
     {
       "AttributeName": "AccountId",
       "AttributeType": "S"
-    },
-    {
-      "AttributeName": "Email",
-      "AttributeType": "S"
-    },
-    {
-      "AttributeName": "Password",
-      "AttributeType": "S"
-    },
-    {
-      "AttributeName": "Password",
-      "AttributeType": "S"
     }
   ],
   "KeySchema": [
     {
-      "AttributeName": "PublicKey",
+      "AttributeName": "AccountId",
       "KeyType": "HASH"
-    },
-    {
-      "AttributeName": "PrivateKey",
-      "KeyType": "RANGE"
     }
   ],
   "ProvisionedThroughput": {
