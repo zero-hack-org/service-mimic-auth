@@ -1,0 +1,35 @@
+{
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "AccountId",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Email",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Password",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "Password",
+      "AttributeType": "S"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "PublicKey",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "PrivateKey",
+      "KeyType": "RANGE"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 10,
+    "WriteCapacityUnits": 10
+  },
+  "BillingMode": "PAY_PER_REQUEST"
+}
