@@ -1,5 +1,3 @@
-import ballerina/io;
-
 # Returns the string `Hello` with the input string name.
 #
 # + name - name as a string
